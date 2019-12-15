@@ -1,4 +1,4 @@
-# hitchhikers-guide-to-distributed-storage-and-processing-of-big-data
+# The-centralized-guide-to-distributed-storage-and-processing-of-big-data
 
 ## Introduction
 ![pyspark](https://github.com/PotatoSpudowski/hitchhikers-guide-to-distributed-storage-and-processing-of-big-data/blob/master/Images/spark.png)
@@ -145,6 +145,18 @@ This script loads the "Harry Potter and the Prisoner of Azkaban" book and conver
 ### 08_reduce.py
 This script creates a list of random integers, converts them into RDD and uses the "Reduce" function to get the product of the integers in the RDD.
 
+### 09_sum_of_3_million_prime_numbers.py
+This script reads 3 text files consisting of 1 million prime numbers from 0-1mil, 1mil-2mil and 2mil-3mil as 3 different RDDs. Combines the 3 RDDs using union function and using the Reduce function finds the sum of first 3 million prime numbers.
+
+### 10_caching.py
+This script reads 3 text files consisting of 1 million prime numbers from 0-1mil, 1mil-2mil and 2mil-3mil as 3 different RDDs. Combines the 3 RDDs using union function and using the Reduce function finds the sum of first 3 million prime numbers. Then counts the number of integers in the RDD. 
+
+It first does the above operations without caching and calculates the time and then does the same thing after caching the RDD in memory before counting. This significantly reduces the time as the RDDs dont have to be reloaded for counting after finding the sum.
+
+### 11_stack_overflow_survey_analysis_using_accumulators.py
+This script loads the "2016-stack-overflow-survey-responses.csv" from the data folder 
+
+
 ## Resources
 https://intellipaat.com/blog/what-is-apache-spark/
 
@@ -153,4 +165,8 @@ https://www.infoq.com/articles/apache-spark-introduction/
 https://people.eecs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf
 
 https://data-flair.training/blogs/install-spark-ubuntu/
+
+https://primes.utm.edu/lists/small/millions/
+
+https://academy.level-up.one/p/apache-spark-with-python-big-data-with-pyspark-and-spark/?product_id=673914&coupon_code=YOUTUBE
 
