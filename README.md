@@ -154,8 +154,28 @@ This script reads 3 text files consisting of 1 million prime numbers from 0-1mil
 It first does the above operations without caching and calculates the time and then does the same thing after caching the RDD in memory before counting. This significantly reduces the time as the RDDs dont have to be reloaded for counting after finding the sum.
 
 ### 11_stack_overflow_survey_analysis_using_accumulators.py
-This script loads the "2016-stack-overflow-survey-responses.csv" from the data folder 
+This script loads the "2016-stack-overflow-survey-responses.csv" from the data folder as an RDD. Using accumulators it finds out the total no of responses present in the RDD and the total no of responses missing the salary of the developer.
 
+What are accumulators?
+
+Think of accumulators as a global counter variable where each node of the cluster can write values in to. These are the variables that you want to keep updating as a part of your operation like for example while reading log lines, one would like to maintain a real time count of number of certain log type records identified.
+
+### 12_stack_overflow_survey_analysis_using_accumulators_2.py
+This script loads the "2016-stack-overflow-survey-responses.csv" from the data folder as an RDD. Using accumulators it finds out the total no of responses present in the RDD and the total no of responses missing the salary of the developer and the total no of bytes processed.
+
+### 13_makerspace_analysis.py
+This script prints the total no of makerspaces in every town/area in UK. The script loads the "uk-postcode.csv" from data and creates a map of post codes and corresponding town/area name. It then loads the "uk-makerspaces-identifiable-data.csv" as RDD and creates a map of town/area name and their occurence.
+
+The script takes approximately 3.23 seconds to execute.
+
+### 14_makerspace_analysis_using_broadcast_variables.py
+This script prints the total no of makerspaces in every town/area in UK. The script loads the "uk-postcode.csv" from data and creates a broadcast variable of the map of post codes and corresponding town/area name. It then loads the "uk-makerspaces-identifiable-data.csv" as RDD and creates a map of town/area name and their occurence.
+
+The script takes approximately 3.17 seconds to execute.
+
+What are broadcast variables?
+
+Broadcast variables are variables that we want to share throughout our cluster. However there are a couple of caveats that are important to understand. Broadcast variables have to be able to fit in memory on one machine. That means that they definitely should NOT be anything super large, like a large table or massive vector. Secondly, broadcast variables are immutable, meaning that they cannot be changed later on.
 
 ## Resources
 https://intellipaat.com/blog/what-is-apache-spark/
@@ -170,3 +190,4 @@ https://primes.utm.edu/lists/small/millions/
 
 https://academy.level-up.one/p/apache-spark-with-python-big-data-with-pyspark-and-spark/?product_id=673914&coupon_code=YOUTUBE
 
+https://github.com/vaquarkhan/vaquarkhan/wiki/What-are-broadcast-variables-and-accumulators-in-Apache-Spark%3F-Answer-Request
