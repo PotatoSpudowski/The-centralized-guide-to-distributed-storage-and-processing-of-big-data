@@ -217,6 +217,11 @@ This script joins 2 RDDs using join, leftOuterJoin, rightOuterJoin and fullOuter
 ### 19_sort_by_average_house_price.py
 This script finds the average cost of housing based on the no of bedrooms using the "combineByKey" method and sorts the map based on average price using the "sortBy" method.
 
+### Spark SQL code samples
+
+### 20_stack_overflow_analysis.py
+Script to create spark sessions and perform SQL querries like SELECT, FILTER, GROUPBY, etc 
+
 ## TODO
 
 * Learn more...
