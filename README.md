@@ -52,6 +52,72 @@ Resource Management:
 
 Spark can be deployed as a Stand-alone server or it can be on a distributed computing framework like Mesos or YARN.
 
+#### What are Resilient Distributed Datasets?
+
+Resilient Distributed Dataset (based on Matei’s research paper) or RDD is the core concept in Spark framework. Think about RDD as a table in a database. It can hold any type of data. Spark stores data in RDD on different partitions.
+
+They help with rearranging the computations and optimizing the data processing.
+
+They are also fault tolerance because an RDD know how to recreate and recompute the datasets.
+
+RDDs are immutable. You can modify an RDD with a transformation but the transformation returns you a new RDD whereas the original RDD remains the same.
+
+RDD supports two types of operations:
+
+* Transformation
+* Action
+
+Transformation: 
+
+Transformations don't return a single value, they return a new RDD. Nothing gets evaluated when you call a Transformation function, it just takes an RDD and return a new RDD.
+
+Some of the Transformation functions are 
+* map 
+* filter 
+* flatMap 
+* groupByKey
+* reduceByKey
+* aggregateByKey
+* pipe
+* coalesce.
+
+Action: 
+
+Action operation evaluates and returns a new value. When an Action function is called on a RDD object, all the data processing queries are computed at that time and the result value is returned.
+
+Some of the Action operations are 
+* reduce 
+* collect
+* count
+* first
+* take
+* countByKey 
+* foreach.
+
+## Installing Spark
+
+Prerequisites: Java and Git
+
+Go to this link and download Spark:
+
+https://spark.apache.org/downloads.html
+
+Then open terminal and extract the files:
+
+```
+$ cd Downloads
+$ tar -xvf spark-2.3.3-bin-hadoop2.7.tgz
+```
+
+Now the Spark directory will be extracted.
+Next, go to the bin directory in the spark directory:
+```
+$ cd spark-2.3.3-bin-hadoop2.7/bin/
+```
+And to start spark shell, run the following command:
+```
+$ ./spark-shell
+```
 ## Code samples
 
 ### 01_counter.py
@@ -69,3 +135,10 @@ This script loads the log files and finds the intersection based on host name. I
 
 ## Resources
 https://intellipaat.com/blog/what-is-apache-spark/
+
+https://www.infoq.com/articles/apache-spark-introduction/
+
+https://people.eecs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf
+
+https://data-flair.training/blogs/install-spark-ubuntu/
+
