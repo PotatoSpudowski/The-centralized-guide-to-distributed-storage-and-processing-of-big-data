@@ -1,6 +1,6 @@
 # hitchhikers-guide-to-distributed-storage-and-processing-of-big-data
 
-![pyspark](https://github.com/PotatoSpudowski/hitchhikers-guide-to-distributed-storage-and-processing-of-big-data/blob/master/Images/pyspark.jpg)
+![pyspark](https://github.com/PotatoSpudowski/hitchhikers-guide-to-distributed-storage-and-processing-of-big-data/blob/master/Images/spark.png)
 
 This is a repository containing my code samples that helped me understand the concepts of distributed storage and processing of Big data using Apache spark and Python.
 
