@@ -120,6 +120,12 @@ $ ./spark-shell
 ```
 ## Code samples
 
+### How to run the code?
+
+```
+$ spark-submit python_file.py
+```
+
 ### 01_counter.py
 This script loads the "Harry Potter and the Prisoner of Azkaban" book using pyspark modules 
 and finds the count of each word in the book by loading the text file as a RDD(Resilient distributed dataset) and distributing the processing among 3 local clusters.
@@ -177,6 +183,44 @@ What are broadcast variables?
 
 Broadcast variables are variables that we want to share throughout our cluster. However there are a couple of caveats that are important to understand. Broadcast variables have to be able to fit in memory on one machine. That means that they definitely should NOT be anything super large, like a large table or massive vector. Secondly, broadcast variables are immutable, meaning that they cannot be changed later on.
 
+### 15_average_house_price_combine_by_keys.py
+This script finds the average cost of housing based on the no of bedrooms using the "combineByKey" method.
+
+Spark's combineByKey() is invked like this:
+```
+rdd2 = rdd.combineByKey(createCombiner, mergeValue, mergeCombiners)
+``` 
+To use Spark's combineByKey(), you need to define a data structure C (called combiner data structure) and 3 basic functions:
+
+* createCombiner: Which turns a V into a C (e.g., creates a one-element list)
+```
+V --> C
+```
+* mergeValue: To merge a V into a C (e.g., adds it to the end of a list)
+```
+C, V --> C
+```
+* mergeCombiners: To combine two C’s into a single one.
+```
+C, C --> C
+```
+
+### 16_average_house_price_reduce_by_keys.py
+This script finds the average cost of housing based on the no of bedrooms using the "reduceByKey" method.
+
+### 17_reduceByKeys-vs-groupByKey.py
+This script creates a map of words and their count from an RDD using "reduceByKey" and "groupByKey".
+
+### 18_join.py
+This script joins 2 RDDs using join, leftOuterJoin, rightOuterJoin and fullOuterJoin methods.
+
+### 19_sort_by_average_house_price.py
+This script finds the average cost of housing based on the no of bedrooms using the "combineByKey" method and sorts the map based on average price using the "sortBy" method.
+
+## TODO
+
+* Learn more...
+
 ## Resources
 https://intellipaat.com/blog/what-is-apache-spark/
 
@@ -191,3 +235,5 @@ https://primes.utm.edu/lists/small/millions/
 https://academy.level-up.one/p/apache-spark-with-python-big-data-with-pyspark-and-spark/?product_id=673914&coupon_code=YOUTUBE
 
 https://github.com/vaquarkhan/vaquarkhan/wiki/What-are-broadcast-variables-and-accumulators-in-Apache-Spark%3F-Answer-Request
+
+https://github.com/mahmoudparsian/pyspark-tutorial
