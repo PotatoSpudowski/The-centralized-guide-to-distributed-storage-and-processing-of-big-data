@@ -133,6 +133,18 @@ This script loads the log files colleted from the NASA's Apache web server and a
 ### 04_NASA_logs_intersection.py
 This script loads the log files and finds the intersection based on host name. It finally saves the RDD in the Output folder containg the list of host names that appear in both the log files.
 
+### 05_collect_harry.py
+This script loads the "Harry Potter and the Prisoner of Azkaban" book and converst it into a list of words. Using the "Parallelize" function it creates RDDs by utilizing all the available local clusters. Then using the "Collect" functions it collects and combines all the RDDs into a single object.
+
+### 06_count_by_value.py
+This script loads the "Harry Potter and the Prisoner of Azkaban" book and converts it to a list of words. Using the "Parallelize" function it creates RDDs by utilizing all the available local clusters. Then using the "Count" function finds the total no of words in the RDD and using the "countByValue" function creates a map of words and it's count.
+
+### 07_take_harry.py
+This script loads the "Harry Potter and the Prisoner of Azkaban" book and converts it to a list of words. Using the "Parallelize" function it creates RDDs by utilizing all the available local clusters. Then using the "take" function we can peak into the RDD and get 5 words. Note the order of the words returned from the RDD are in the same order as the input file.
+
+### 08_reduce.py
+This script creates a list of random integers, converts them into RDD and uses the "Reduce" function to get the product of the integers in the RDD.
+
 ## Resources
 https://intellipaat.com/blog/what-is-apache-spark/
 
